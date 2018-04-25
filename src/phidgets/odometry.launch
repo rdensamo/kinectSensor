@@ -1,0 +1,32 @@
+
+<launch>
+
+<param name="use_sim_time" value="false"/>
+
+    <machine name="local_alt" address="localhost" default="true" />
+    <!-- phidgets high speed encoders -->
+    <node pkg="phidgets" type="high_speed_encoder" name="encoder_left" respawn="true">
+        <!-- phidget device serial number for the left encoder -->
+        <param name="serial" value="484381" />
+    </node>
+    <node pkg="phidgets" type="high_speed_encoder" name="encoder_right" respawn="true">
+        <!-- phidget device serial number for the right encoder -->
+        <param name="serial" value="484384" />
+    </node>
+    <!-- odometry -->
+    <node pkg="phidgets" type="odometry" name="odometry" respawn="true" output="screen">
+        <!-- phidget device serial numbers for the left and right encoders -->
+        <param name="serialleft" value="484381" />
+        <param name="serialright" value="484384" />
+        <!-- separation between the two wheels in millimetres -->
+        <param name="wheelbase" value="305" />
+        <!-- number of encoder counts per millimetre for the left wheel -->
+        <param name="countspermmleft" value="17.2" />
+        <!-- number of encoder counts per millimetre for the right wheel -->
+        <param name="countspermmright" value="17.1" />
+        <!-- whether to show additional info -->
+        <param name="verbose" value="true" />
+    </node>
+	
+</launch>
+

@@ -1,0 +1,14 @@
+<launch>
+
+    <machine name="local_alt" address="localhost" default="true" />
+    <!-- phidgets high speed encoders -->
+    <node pkg="phidgets" type="high_speed_encoder" name="encoder_left" respawn="true">
+        <!-- phidget device serial number for the left encoder -->
+        <param name="serial" value="484381" />
+    </node>
+    <node pkg="phidgets" type="high_speed_encoder" name="encoder_right" respawn="true">
+        <!-- phidget device serial number for the right encoder -->
+        <param name="serial" value="484384" />
+    </node>
+
+</launch>
